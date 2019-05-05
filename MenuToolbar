@@ -1,0 +1,31 @@
+1º - Criar o arquivo .xml do menu a ser adicionado na toolbar com os seguintes códigos:
+
+<item android:id="@+id/menuSair"
+        android:title="Sair"
+        app:showAsAction="never" />
+        
+2º - Na activity a ser adicionado o menu adicionar os 2 métodos abaixo:
+
+
+@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_toolbar, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+    
+    
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.menuSair:
+                /* Ação a ser executada */
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
