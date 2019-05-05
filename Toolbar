@@ -1,15 +1,24 @@
 1º - Definir o thema como NoActionBar no arquivo styles.xml
+
 2º - Criar o arquivo .xml da Toolbar com o código abaixo:
 
-<android.support.v7.widget.Toolbar
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="61dp">
+
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarPrincipal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
+        android:elevation="5dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
+</FrameLayout>
         
-3º - Abrir a activity que deseja incluir a toolbar criada e adicionar o seguinte código:
+3º - Abrir a activity.xml que deseja incluir a toolbar criada e adicionar o seguinte código:
 
 <include layout="@layout/toolbar"/>
 
@@ -22,7 +31,23 @@ Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
 
 ======================= COMENTÀRIOS ========================
 
-1º Para Alterar o background ou cor do titulo da toolbar é no próprio arquivo toolbar.xml com os seguintes códigos:
+1º -  Para Alterar o background ou cor do titulo da toolbar é no próprio arquivo toolbar.xml com os seguintes códigos:
 
 android:background="@android:color/white"
 app:titleTextColor="@color/colorPrimaryDark"
+
+2.1º - Caso queira exibir o botão voltar padrão na Toolbar deve adicionar o código abaixo no onCreate:
+
+getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+2.2º Caso queira o botão voltar com icone custom adicione o código abaixo no OnCreate:
+
+getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
+
+2.3º - Nos dois caso deve abrir o arquivo AndroidManifest.xml, localizar a activity que será adicionado o botão voltar e adicionar
+o código: android:parentActivityName=".activity.MainActivity", ficando exemplo abaixo:
+
+<activity 
+android:name=".activity.EditarPerfilActivity" android:parentActivityName=".activity.MainActivity">
+</activity>
