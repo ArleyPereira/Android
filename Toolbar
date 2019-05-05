@@ -1,0 +1,28 @@
+1º - Definir o thema como NoActionBar no arquivo styles.xml
+2º - Criar o arquivo .xml da Toolbar com o código abaixo:
+
+<android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+        
+3º - Abrir a activity que deseja incluir a toolbar criada e adicionar o seguinte código:
+
+<include layout="@layout/toolbar"/>
+
+4º - Abrir o arquivo .java da activity que foi inclusa a toolbar e adicionar o seguinte código dentro do método Oncreate:
+
+/* O tipo Toolbar tem que ser o v7 */
+Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
+        toolbar.setTitle("Instagram");
+        setSupportActionBar(toolbar);
+
+======================= COMENTÀRIOS ========================
+
+1º Para Alterar o background ou cor do titulo da toolbar é no próprio arquivo toolbar.xml com os seguintes códigos:
+
+android:background="@android:color/white"
+app:titleTextColor="@color/colorPrimaryDark"
