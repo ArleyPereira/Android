@@ -12,10 +12,6 @@ import com.example.organizze.model.Movimentacao;
 
 import java.util.List;
 
-/**
- * Created by Jamilton Damasceno
- */
-
 public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentacao.MyViewHolder> {
 
     List<Movimentacao> movimentacoes;
