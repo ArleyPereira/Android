@@ -37,6 +37,33 @@ MenuInflater inflater = getMenuInflater();
         searchView.setMenuItem(item);
         return true;
         
+5º - Adicione os dois métodos abaixo dentro do OnCreate
+
+//Configurar métodos para SearchView
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+});
+        
+        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+
+            }
+});
+                
 =========================================== OBSERVAÇÂO =============================================
 
 Ao executar o App caso aparece o erro attr/layout_anchorGravity' with config ''
