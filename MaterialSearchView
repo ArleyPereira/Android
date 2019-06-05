@@ -1,0 +1,47 @@
+Link Para Implementação:
+https://github.com/MiguelCatalan/MaterialSearchView
+
+1º - dependencies {
+    	compile 'com.miguelcatalan:materialsearchview:1.4.0'
+}
+
+2º - Adicionar o código abaixo no arquivo da toolbar.xml
+
+<com.miguelcatalan.materialsearchview.MaterialSearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+        
+3º - Criar o arquivo menu_main com o código abaixo:
+
+<item android:id="@+id/menu_search"
+        android:title="Pesquisar"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_pesquisa_branco_24dp"
+        />
+        
+4º - Na MainActivity adicionar os códigos abaixo:
+
+Criar a Referencia:
+private MaterialSearchView searchView;
+
+Usando o findViewById
+searchView = findViewById(R.id.searchView);
+
+Sobrescrevendo o método onCreateOptionsMenu:
+
+MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+
+        MenuItem item = menu.findItem(R.id.menu_search);
+        searchView.setMenuItem(item);
+        return true;
+        
+=========================================== OBSERVAÇÂO =============================================
+
+Ao executar o App caso aparece o erro attr/layout_anchorGravity' with config ''
+
+adicione no Build.Gradle as duas linhas abaixo:
+
+implementation 'com.android.support:support-v4:28.0.0'
+implementation 'com.android.support:design:28.0.0'
