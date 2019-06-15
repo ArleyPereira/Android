@@ -1,24 +1,17 @@
-1º Criar um arquivo .xml chamado 'carregamento': http://prntscr.com/nqd1zq
+1º Url da Biblioteca: https://github.com/d-max/spots-dialog
 
-2º Adicionar o elemento ProgressBar e centraliza-lo na tela
+2º Criar a Referência do AlertDialog - private AlertDialog dialog; - (android.app)
 
 3º Criar a referência do AlertDialog: private AlertDialog dialog;
 
-4º Adicionar o método abaixo na sua Activity:
+4º Adicionar o código abaixo no método onde será mostrado a AlerDialog
 
-private void abrirDialogCarregamento(String titulo){
-
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle(titulo);
-        alert.setCancelable(false);
-        alert.setView(R.layout.carregamento);
-
-        dialog = alert.create();
+dialog = new SpotsDialog.Builder()
+                .setContext(this)
+                .setMessage("Salvando Anúncio")
+                .setCancelable(false)
+                .build();
         dialog.show();
-
-    }
-    
-    5º Agora ao chamar o evento adicionar na primeira linha a chamada do método criado e passar uma String como titulo ex:
-    abrirDialogCarregamento("Carregando dados, aguarde!");
-    
-    6º Apos terminar todo o processo de carregamento dos dados adicione: dialog.cancel();
+        
+5º - Para fechar o AlertDialog adicione o código abaixo:
+dialog.dismiss();
