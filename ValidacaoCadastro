@@ -1,0 +1,15 @@
+String excecao = "";
+                    try {
+                        throw task.getException();
+                    }catch (FirebaseAuthWeakPasswordException e){
+                        excecao = "Digite uma senha mais forte!";
+                    }catch (FirebaseAuthInvalidCredentialsException e){
+                        excecao = "Por favor, digite um e-mail válido";
+                    }catch (FirebaseAuthUserCollisionException e){
+                        excecao = "Este e-mail já está cadastrado";
+                    }catch (Exception e){
+                        excecao = "Erro ao Cadastrar usuário" + e.getMessage();
+                        e.printStackTrace();
+                    }
+
+                    Toast.makeText(CadastroActivity.this, excecao, Toast.LENGTH_SHORT).show();
