@@ -1,0 +1,12 @@
+String excecao = "";
+try {
+  throw task.getException();
+}catch ( FirebaseAuthInvalidUserException e ) {
+  excecao = "Usuário não está cadastrado.";
+}catch ( FirebaseAuthInvalidCredentialsException e ){
+  excecao = "E-mail e senha não correspondem a um usuário cadastrado";
+}catch (Exception e){
+  excecao = "Erro ao cadastrar usuário: "  + e.getMessage();
+  e.printStackTrace();
+}
+Toast.makeText(LoginActivity.this,excecao, Toast.LENGTH_SHORT).show();
