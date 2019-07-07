@@ -1,0 +1,17 @@
+private void alertaValidacaoPermissao() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Permissões Negadas");
+        builder.setMessage("Para utilizar o app é necessário aceitar as permissões");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
