@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.arleypereira.ifoodclone.R;
 
+import dmax.dialog.SpotsDialog;
+
 public class DialogCustomLogin extends DialogFragment {
 
     @NonNull
@@ -38,7 +40,7 @@ public class DialogCustomLogin extends DialogFragment {
                 if (!email.isEmpty()){
                     if (!senha.isEmpty()) {
                         dismiss();
-                        Toast.makeText(getActivity(), "Email e senha Válidos", Toast.LENGTH_SHORT).show();
+                        logar();
                     } else {
                         editSenha.requestFocus();
                         Toast.makeText(getActivity(), "Digite sua senha", Toast.LENGTH_SHORT).show();
@@ -66,4 +68,18 @@ public class DialogCustomLogin extends DialogFragment {
     public void onCancel(DialogInterface dialog) {
         super.onCancel(dialog);
     }
+
+    private void abrirCarregamento(String mensagem){
+        android.app.AlertDialog dialog = new SpotsDialog.Builder()
+                .setContext(getActivity())
+                .setMessage(mensagem)
+                .setCancelable(false)
+                .build();
+        dialog.show();
+    }
+
+    private void logar(){
+        abrirCarregamento("Acessando sua conta...");
+    }
+
 }
