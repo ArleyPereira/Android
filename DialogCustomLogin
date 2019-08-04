@@ -1,0 +1,69 @@
+package com.arleypereira.ifoodclone.helper;
+
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.arleypereira.ifoodclone.R;
+
+public class DialogCustomLogin extends DialogFragment {
+
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        final View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_login_carrinho, null);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        builder.setView(view);
+
+        final EditText editEmail = view.findViewById(R.id.editEmail);
+        final EditText editSenha = view.findViewById(R.id.editSenha);
+        Button buttonLogin = view.findViewById(R.id.buttonLogin);
+        Button buttonCancelar = view.findViewById(R.id.buttonCancelar);
+
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String email = editEmail.getText().toString();
+                String senha = editSenha.getText().toString();
+
+                if (!email.isEmpty()){
+                    if (!senha.isEmpty()) {
+                        dismiss();
+                        Toast.makeText(getActivity(), "Email e senha Válidos", Toast.LENGTH_SHORT).show();
+                    } else {
+                        editSenha.requestFocus();
+                        Toast.makeText(getActivity(), "Digite sua senha", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getActivity(), "Digite seu email", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+        buttonCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
+
+        return builder.create();
+
+    }
+
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        super.onCancel(dialog);
+    }
+}
