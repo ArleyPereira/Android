@@ -1,0 +1,14 @@
+private boolean verificarInternet(){
+
+        boolean temInternet = false;
+
+        ConnectivityManager connect = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo network = connect.getActiveNetworkInfo();
+
+        if (network != null && network.isConnected()){
+            temInternet = true;
+        }
+
+        return temInternet;
+
+}
