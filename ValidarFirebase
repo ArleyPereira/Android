@@ -1,0 +1,15 @@
+private void exibirError(String erro){
+
+        if (erro.contains("The password is invalid")){
+            Toast.makeText(activity, "Senha inválido!", Toast.LENGTH_SHORT).show();
+        }else if (erro.contains("There is no user record corresponding to this identifier")){
+            Toast.makeText(activity, "E-mail inválido ou não está cadastrado", Toast.LENGTH_SHORT).show();
+        }else if (erro.contains("The email address is already in use by another account")){
+            Toast.makeText(activity, "O endereço de email já está em uso", Toast.LENGTH_SHORT).show();
+        }else if (erro.contains("The email address is badly formatted")){
+            Toast.makeText(activity, "Endereço de email inválido", Toast.LENGTH_SHORT).show();
+        }else if (erro.contains("Password should be at least 6 characters")){
+            Toast.makeText(activity, "A senha deve ter pelo menos 6 caracteres", Toast.LENGTH_SHORT).show();
+        }
+
+    }
