@@ -1,0 +1,19 @@
+1º - No Primeiro Fragment adicionar o código abaixo na transação do Fragment:
+
+Bundle args = new Bundle();
+args.putString("categoria", categoria);
+
+FragmentManager fragmentManager = getSupportFragmentManager();
+
+HomeFragment homeFragment = new HomeFragment();
+homeFragment.setArguments(args);
+
+FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+fragmentTransaction.replace(R.id.viewPager, homeFragment).commit();
+
+2º - No segundo Fragment utilize o código abaixo para recuperar, utilizamos uma String como argumento:
+
+Bundle args = getArguments();
+if (args != null){
+    String categoria = (String) args.getSerializable("categoria");
+}
