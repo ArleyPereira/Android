@@ -1,3 +1,8 @@
 InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(TextInputEmail.getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
+
+// Ocultar teclado
+
+InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.hideSoftInputFromWindow(editMensagem.getWindowToken(), 0);
