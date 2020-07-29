@@ -1,0 +1,23 @@
+
+    private void configMenuToolbar() {
+        PopupMenu popup = new PopupMenu(EmpresaFormProdutoActivity.this, ibMenu);
+
+        popup.getMenuInflater().inflate(R.menu.menu_form_produto, popup.getMenu());
+
+        popup.setOnMenuItemClickListener(item -> {
+
+            switch (item.getItemId()) {
+                case R.id.menu_salvar:
+                    
+                    break;
+                case R.id.menu_categoria:
+                   
+                    break;
+                case R.id.menu_remover:
+                    
+                    break;
+            }
+
+            return true;
+        });
+    }
