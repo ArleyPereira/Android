@@ -1,8 +1,24 @@
-InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(TextInputEmail.getWindowToken(),
-                InputMethodManager.HIDE_NOT_ALWAYS);
+/* ------------------ JAVA ------------------ */
 
-// Mostrar o teclado
+private void hideKeyboard(){
+    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+    inputMethodManager.hideSoftInputFromWindow(TextInputEmail.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+}
 
-InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+private fun openKeyboard(){
+    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+}
+
+/* ------------------ KOTLIN ------------------ */
+
+private fun openKeyboard(){
+    val imm: InputMethodManager =
+    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
+}
+
+private fun hideKeyboard() {
+    val inputManager:InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputManager.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.SHOW_FORCED)
+}
