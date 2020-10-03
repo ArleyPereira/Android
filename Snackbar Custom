@@ -1,0 +1,17 @@
+Snackbar snackbar = Snackbar.make(likeButton, "Anúncio salvo", Snackbar.LENGTH_SHORT);
+    snackbar.setAction("DESFAZER", view -> {
+    // ACTION
+});
+
+// Text
+TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
+
+// ICON
+textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_favorito_like_red, 0, 0, 0);
+
+// PADDING
+textView.setCompoundDrawablePadding(24);
+
+snackbar.setActionTextColor(Color.parseColor("#F78323"))
+.setTextColor(Color.parseColor("#FFFFFF"))
+.show();
