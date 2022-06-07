@@ -1,0 +1,8 @@
+Adicionar o código abaixo no onCreate da Activity.
+
+R.drawable.status: Seu arquivo de gradiente.
+
+window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+window.statusBarColor = Color.TRANSPARENT
+val background = ContextCompat.getDrawable(this, R.drawable.status)
+window.setBackgroundDrawable(background)
